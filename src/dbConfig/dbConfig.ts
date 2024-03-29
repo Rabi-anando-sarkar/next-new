@@ -14,8 +14,6 @@ export async function connectDB() {
             console.log('MONGO DATABASE CONNECTION ERROR,PLEASE MAKE SURE DATABASE IS RUNNING');
             console.log(`MONGO DATABASE CONNECTION ERROR :: ${error}`);
         })
-
-        process.exit()
     } catch (error) {
         console.log(`MONGO DATABASE CONNECTION FAILED! :: ${error}`);
     }

@@ -12,6 +12,8 @@ export async function POST(request: NextRequest){
         const { username,email,password } = reqBody
         // validations
         console.log(reqBody);
+
+        // check if user already exists
         const user = await User.findOne({email})
 
         if(user) {
@@ -21,6 +23,7 @@ export async function POST(request: NextRequest){
             )
         }
 
+        // hash password
         const salt = await bcryptjs.genSalt(10);
         const hashedPassword = await bcryptjs.hash(password,salt)
 
